@@ -47,7 +47,7 @@ would be use for the real testing, 80% - 20%) and averaging their performance.
 
 And after this I could go straight to seeing how the model performed, in this case by using 50 new random splits of the data.
 
-## linear classifier
+## Linear classifier
 The same preprocessing that happened for the k-nn classifier was also applied to the data this time. However, the main concern 
 in this situation is that I was facing non-linearly separable data. Because of this, I had to build a probabilistic model
 that assigns a lable based on the probability of the testing sample belonging to each class against the other two:
@@ -72,8 +72,7 @@ weights = pseudoinverse(training_data) * training_labels
 where training_labels have been replaced for each of the above cases by 1 if it's the class we are testing or -1 otherwise.
 
 ## Results
-Surprisingly, the k-nn model performed quite a bit better than the linear one. It probably is due to the fact that the data itself
-is non-linearly separable so the k-nn is more suited for the job. 
+Surprisingly, the k-nn model performed quite a bit better than the linear one. It probably is due to the nature of the data itself that makes k-nn more suited for the job. It would be interesting to investigate the reason this is the case in the future, though. Perhaps the data is not linearly separable or can't be easily separated in a linear manner? 
 
 On the other hand, I don't discard errors on my part, since this is a project made last summer during my ML learning and it is 
 the first time I used Python for such a task (also the first time I do such a task at all). If there is anything that skipped my
