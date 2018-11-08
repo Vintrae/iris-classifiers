@@ -1,10 +1,5 @@
 # This is a linear classifier for the iris classification
 # dataset available at https://archive.ics.uci.edu/ml/datasets/iris
-#
-# The main concern in this situation is that we are facing non-linearly
-# separable data. Because of this, we will have to build a probabilistic model
-# that assigns a lable based on the probability of the testing sample 
-# belonging to each class against the other two.
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder, StandardScaler
@@ -18,10 +13,7 @@ csv_data = pd.read_csv("data.csv")
 data = csv_data.iloc[:, 0:-1].values
 labels = csv_data.iloc[:, 4].values
 
-# Normalising the data is essential to the success of the model. Since the
-# model will compute the Euclidean distances to calculate the squared error, 
-# if  the data is not normalsied and one of the features has a broad range of 
-# values, the distance will be governed by this particular feature.
+# Normalising the data.
 normaliser = StandardScaler()
 data = normaliser.fit_transform(data)
 
@@ -36,11 +28,11 @@ model_accuracy = 0
 accuracies = np.zeros([50,1])
 for dataset in range (0, 50):
     Xtr, Xte, Ytr, Yte = train_test_split(data, labels, train_size=0.8, test_size=0.2)
-    
-    # Train and test the model. To do this we have to get the probability of 
-    # the testing data belonging to class 0 against the probability of it 
-    # belonging to any other class and repeat for the other two classes. The 
-    # highest individual probability will decide the label assigned to the 
+
+    # Train and test the model. To do this we have to get the probability of
+    # the testing data belonging to class 0 against the probability of it
+    # belonging to any other class and repeat for the other two classes. The
+    # highest individual probability will decide the label assigned to the
     # prediction. To represent this scenario we change the labels so 1 means
     # it belongs to the class and -1 means it doesn't (therefore belongs to
     # any of the other two).
@@ -49,16 +41,16 @@ for dataset in range (0, 50):
     predictions = np.zeros([30,1])
     for class_label in range (0,3):
         Ytr_mod = np.where(Ytr!=class_label,-1,1)
-        
-        # Calculate the optimal weights by using the normal function derived 
-        # from minimising the least squares error function. To avoid 
-        # unnecessary calculations, this will be computed using the 
+
+        # Calculate the optimal weights by using the normal function derived
+        # from minimising the least squares error function. To avoid
+        # unnecessary calculations, this will be computed using the
         # Moore-Penrose inverse or pseudoinverse.
         weights = np.matmul(np.linalg.pinv(Xtr), Ytr_mod)
-        
+
         # Test the weights with the testing data.
         class_probability[:,class_label] = np.matmul(Xte, weights)
-        
+
     # Finally, assign a label depending on the maximum probability among the
     # three each sample has.
     correct_predictions = 0
@@ -72,6 +64,4 @@ del sample, value, class_label, dataset, correct_predictions, class_probability
 
 # Compute model accuracy.
 model_accuracy = np.mean(accuracies)
-print('Model accuracy (tested on 50 partitions of data): ', model_accuracy)  
-
-        
+print('Model accuracy (tested on 50 partitions of data): ', model_accuracy)
