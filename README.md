@@ -25,7 +25,7 @@ to be done, since the features are conveniently separated by commas.
 
 ## k-nn classifier
 I first implemented a k-nearest neighbour classifier. The way it operates is that for every testing sample, it calculates the 
-distances between it and the rest of training elements. Then this distances are sorted and the most prominent label among the
+distances between it and the rest of training elements. Then this distances are sorted and the most dominant label among the
 first k elements (which will be, consequently, the closest to the testing element) is also assigned to the testing sample.
 
 In order to train the model and test it afterwards we have to make a division of 'data' and 'labels' into training and testing. 
