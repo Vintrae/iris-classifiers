@@ -20,7 +20,7 @@ There are 50 samples for each class, with a line of data looking like this:
 
 ## Data conversion to .csv
 The first step was to transform the raw data in the *iris.data* file into a .csv file which is can be imported
-by pandas in Python. Fortunately, this can be done quite easily import the csv library. Only stripping and splitting have
+by pandas in Python. Fortunately, this can be done quite easily by importing the csv library. Only stripping and splitting have
 to be done, since the features are conveniently separated by commas.
 
 ## k-nn classifier
