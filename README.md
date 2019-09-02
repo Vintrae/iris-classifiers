@@ -1,4 +1,4 @@
-# iris-classifiers
+# Python iris classifiers
 Two different classifiers for the Iris dataset written in Python.
 
 The dataset can be found in [https://archive.ics.uci.edu/ml/datasets/iris](https://archive.ics.uci.edu/ml/datasets/iris) and has 150 
