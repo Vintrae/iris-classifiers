@@ -75,6 +75,5 @@ where training_labels have been replaced for each of the above cases by 1 if it'
 ## Results
 Surprisingly, the k-nn model performed quite a bit better than the linear one. It probably is due to the nature of the data itself that makes k-nn more suited for the job. It would be interesting to investigate the reason this is the case in the future, though. Perhaps the data is not linearly separable or can't be easily separated in a linear manner? 
 
-On the other hand, I don't discard errors on my part, since this is a project made last summer during my ML learning and it is 
-the first time I used Python for such a task (also the first time I do such a task at all). If there is anything that skipped my
-mind or any mistakes I have made, feel free to tell me about them, I'm always glad to learn something new!
+On the other hand, I don't discard errors on my part, since this is a summer project during my ML learning and it is 
+the first time I used Python for such a task (also the first time I do such a task at all). If there is anything I missed or any mistakes I have made, let me know!
