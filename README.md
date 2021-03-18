@@ -8,7 +8,7 @@ samples of iris with 4 features:
   3. Petal length (in cm)
   4. Petal width (in cm)
   
-Additionally, it provides a label for each to indicate it belongs to one of this classes:
+Additionally, it provides a label for each entry to indicate it belongs to one of this classes:
   - Iris Setosa
   - Iris Versicolor
   - Iris Virginica
